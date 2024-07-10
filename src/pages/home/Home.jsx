@@ -3,27 +3,9 @@ import style from './home.module.css';
 import Item from "./item/Item";
 import {POST_PAGE} from "../../router/consts";
 import {useDispatch, useSelector} from "react-redux";
-import {setAuthAction} from "../../store/userReducer";
+import {setAuthAction, setNotAuthAction} from "../../store/userReducer";
 
 const Home = () => {
-
-    const userData = useSelector((state) => state.user);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        setTimeout(() => {
-            dispatch(setAuthAction({
-                id: 1,
-                name: 'asd',
-                surname: 'das',
-                email: 'asd@das.com',
-            }))
-        }, 1000)
-    }, []);
-
-    useEffect(() => {
-        console.log(userData);
-    }, [userData]);
 
     const items = [
         {

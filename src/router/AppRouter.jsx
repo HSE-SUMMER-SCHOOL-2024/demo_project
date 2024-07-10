@@ -2,10 +2,11 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import {useState} from "react";
 import {authRoutes, publicRoutes} from "./router";
 import Home from "../pages/home/Home";
+import {useSelector} from "react-redux";
 
 export const AppRouter = () => {
 
-    const [isAuth, setIsAuth] = useState(false);
+    const isAuth = useSelector(state => state.user.isAuth);
 
     return <Routes>
         {isAuth && authRoutes.map(({path, component}) => {
