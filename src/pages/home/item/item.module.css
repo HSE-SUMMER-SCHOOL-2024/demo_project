@@ -1,0 +1,21 @@
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: #6f955f;
+    color: #e39036;
+
+    font-size: 3rem;
+    font-weight: 300;
+
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        background: #3e6c21;
+        color: white;
+    }
+}
