@@ -1,28 +1,17 @@
 import React, {useEffect, useRef} from 'react';
 import style from './item.module.css'
+import {useNavigate} from "react-router-dom";
 
-const Item = ({text = 'asd'}) => {
+const Item = ({text = 'asd', path = '/'}) => {
 
+    const navigate = useNavigate();
 
-    // const submitHandler = (e) => {
-    //     e.preventDefault();
-    //
-    //     if(formRef.current === null) return;
-    //
-    //     const data = new FormData(formRef.current);
-    //
-    //     const body = {};
-    //
-    //     for (const pair of data.entries()) {
-    //         body[pair[0]] = pair[1];
-    //     }
-    //
-    //     //@nikita_dumkin
-    //
-    // }
+    const clickHandler = () => {
+        navigate(path);
+    }
 
   return (
-      <div className={style.item}>
+      <div className={style.item} onClick={clickHandler}>
           <p>{text}</p>
       </div>
   );

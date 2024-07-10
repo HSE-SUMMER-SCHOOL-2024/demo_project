@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import style from './home.module.css';
 import Item from "./item/Item";
-import {POST_PAGE} from "../../router/consts";
+import {LOGIN_PAGE, POST_PAGE} from "../../router/consts";
 import {useDispatch, useSelector} from "react-redux";
 import {setAuthAction, setNotAuthAction} from "../../store/userReducer";
 
@@ -14,18 +14,14 @@ const Home = () => {
         },
         {
             title: 'Личный кабинет',
-            path: POST_PAGE,
+            path: LOGIN_PAGE,
         },
     ]
 
-    const [state, setState] = React.useState([
-        'Посты', 'Видео-семинары', 'Личный кабинет'
-    ]);
-
   return (
     <div className={style.home}>
-        {state.map((text) => {
-            return <Item text={text} key={text}/>
+        {items.map(({path, title}) => {
+            return <Item text={title} key={title} path={path}/>
         })}
     </div>
   );

@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './style.css'
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {POST_PAGE} from "../../router/consts";
 
 const Login = () => {
+
+    const isAuth = useSelector(state => state.user.isAuth);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!isAuth) return;
+        navigate(POST_PAGE);
+    }, []);
 
     const submitHandler = (event) => {
         event.preventDefault();
@@ -21,8 +32,18 @@ const Login = () => {
     return (
         <main className='page'>
             <form onSubmit={submitHandler}>
-                <input name='email' type='email' placeholder='example@example.com'/>
-                <input name='password' type='password' placeholder='Some password'/>
+                <input
+                    name='email'
+                    type='email'
+                    autoComplete='email'
+                    placeholder='example@example.com'
+                />
+                <input
+                    name='password'
+                    type='password'
+                    autoComplete='current-password'
+                    placeholder='Some password'
+                />
                 <button type='submit'>Login</button>
             </form>
         </main>
