@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import style from './item.module.css'
 
-const Item = ({text = 'asd', onClick = () => {}}) => {
+const Item = ({text = 'asd'}) => {
 
 
     // const submitHandler = (e) => {
